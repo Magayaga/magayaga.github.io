@@ -1,10 +1,204 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <title>Magayaga</title>
-    </head>
-    <body>
-        <h1>Loading...</h1>
-        <h2>Waiting here</h2>
-    </body>
+<html lang="ko" data-ng-app="app">
+  <head>
+    <title>Magayaga</title>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0"
+    />
+    <meta name="author" content="NAVER Corp" />
+    <meta
+      name="description"
+      content="Open, Share and Enjoy - NAVER Open Source"
+    />
+    <meta
+      name="keywords"
+      content="NAVER, Opensource, Open Source, NAVER Open Source"
+    />
+    <meta property="og:title" content="NAVER Open Source" />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="/assets/images/preview.png" />
+    <meta property="og:url" content="https://magayaga.github.io" />
+    <meta
+      property="og:description"
+      content="Open, Share and Enjoy - NAVER Open Source"
+    />
+    <link
+      rel="shortcut icon"
+      href="/assets/images/favicon.ico"
+      type="image/x-icon"
+    />
+    <link rel="icon" href="/assets/images/favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" href="assets/css/common.css" />
+    <link rel="stylesheet" href="assets/css/style.css" />
+    <link rel="stylesheet" href="assets/css/responsive.css" />
+    <link rel="stylesheet" href="assets/css/high_dpi.css" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Mono:300"
+      rel="stylesheet"
+    />
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <!-- skip navigation -->
+
+    <div id="u_skip">
+      <dl>
+        <dt class="blind">Skip Navigation</dt>
+        <dd><a href="#gnb">Skip to menu</a></dd>
+        <dd><a href="#content">Skip to content</a></dd>
+      </dl>
+    </div>
+    <header class="navbar" data-spy="affix" data-offset-top="5">
+      <div class="navbar-container">
+        <a href="/" class="logo"
+          ><h1 class="hide-text">naver opensource website</h1></a
+        >
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-type="toggler"
+          type="button"
+        >
+          <i class="menu"></i> <span class="hide-text">toggler menu</span>
+        </button>
+        <h2 class="hide-text">site menu</h2>
+        <nav class="navbar-collapse" id="gnb">
+          <ul>
+            <li>
+              <a href="https://magayaga.github.io/products"
+                ><span class="hide-text">Go to </span>Products</a
+              >
+            </li>
+            <li>
+              <a
+                href="https://magayaga.github.io/documentation"
+                ><span class="hide-text">Go to </span>Documentation</a
+              >
+            </li>
+            <li>
+              <a href="https://github.com/magayaga"
+                ><span class="hide-text">Go to </span>Github</a
+              >
+            </li>
+          </ul>
+          <button class="navbar-close" type="button" data-type="toggler">
+            <i class="close"></i> <span class="hide-text">close menu</span>
+          </button>
+        </nav>
+      </div>
+    </header>
+    <div class="jumbotron">
+      <div class="jumbotron-container"></div>
+      <div class="jumbotron-campaign">
+        <h2><span>Open, Share </span><span>and Enjoy!</span></h2>
+        <h3><span>Welcome to our</span><span> open source community</span></h3>
+      </div>
+    </div>
+    <h2 class="hide-text">main content</h2>
+    <main id="content" class="main-contents">
+      <h3 class="hide-text">Open Source Project List</h3>
+      <div
+        class="content-container"
+        data-ng-controller="AppController as appCtrl"
+      >
+        <ul class="opensource-list">
+          <li
+            class="opensource-item"
+            ng-class="{empty: project.empty === true}"
+            data-ng-repeat="project in appCtrl.projects"
+          >
+            <div class="item-container">
+              <div class="item-card {{project.type}}">
+                <h3 data-ng-bind="project.title"></h3>
+                <p
+                  class="svc_txt"
+                  data-ng-bind-html="project.description | unsafe"
+                ></p>
+                <div class="project-item-links">
+                  <a
+                    ng-if="project.github"
+                    class="project-item-link"
+                    data-ng-attr-href="{{project.github}}"
+                    ><span class="hide-text">Go to </span>GitHub</a
+                  >
+                  <a
+                    ng-if="project.website"
+                    class="project-item-link"
+                    data-ng-attr-href="{{project.website}}"
+                    ><span class="hide-text">Go to </span>WebSite</a
+                  >
+                </div>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-container">
+        <div class="social">
+          <a
+            href="https://www.facebook.com/naverengineering"
+            class="social-item facebook"
+            ><span class="hide-text">Go to facebook</span></a
+          >
+          <a href="mailto://opensource@navercorp.com" class="social-item mail"
+            ><span class="hide-text">Send mail</span></a
+          >
+        </div>
+        <div class="links">
+          <a
+            href="https://developers.naver.com/main"
+            class="links-item developers"
+            ><span
+              ><span class="hide-text">Go to </span>NAVER Developers</span
+            ></a
+          >
+          <a href="https://d2.naver.com/home" class="links-item d2"
+            ><span><span class="hide-text">Go to </span>NAVER D2</span></a
+          >
+        </div>
+        <p class="copyright">© NAVER Corp.</p>
+      </div>
+    </footer>
+    <button class="top-button" type="button">
+      <span class="hide-text">Scroll To Top</span>
+    </button>
+
+    <script src="/assets/vendor/jquery/jquery.min.js"></script>
+    <script src="/assets/vendor/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="/assets/figlet/lib/figlet.js"></script>
+    <script src="/assets/vendor/angularjs/angular.min.js"></script>
+    <script src="/apps/common.js"></script>
+    <script src="/apps/app.js"></script>
+    <script>
+      (function(i, s, o, g, r, a, m) {
+        i["GoogleAnalyticsObject"] = r;
+        (i[r] =
+          i[r] ||
+          function() {
+            (i[r].q = i[r].q || []).push(arguments);
+          }),
+          (i[r].l = 1 * new Date());
+        (a = s.createElement(o)), (m = s.getElementsByTagName(o)[0]);
+        a.async = 1;
+        a.src = g;
+        m.parentNode.insertBefore(a, m);
+      })(
+        window,
+        document,
+        "script",
+        "//www.google-analytics.com/analytics.js",
+        "ga"
+      );
+      ga("create", "UA-56933950-1", "auto");
+      ga("send", "pageview");
+    </script>
+  </body>
 </html>
